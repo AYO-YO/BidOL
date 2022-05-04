@@ -12,14 +12,14 @@
             user_text_info = ['被访问量', '原创文章', '作者排名', '粉丝数量'],
             article = [
                 //文章： [标题，摘要，阅读，评论，收藏，链接]
-                ['Typora上传图片后无法预览的问题 解决方法', 'Typora作为最好用的没有之一的Markdown编辑查看软件，使用PicGo上传图片到SM.MS图床有一个小bug，上传图床可以正常上传，但是上传成功后不能预览，如图：解决方法很简单，把https变为http即可。包括直接复制到CSDN出现外站图片转换失败的情况也可以用此方法解决。效果如图：..', 10, 0, 0, 'my_article.html'],
-                ['第十二届蓝桥杯国赛真题+题解 Python', '2021年蓝桥杯国赛，第十二界蓝桥杯软件赛决赛 Python 答题分析，附有完整题目A. 带宽B.纯质数C.完全日期D.最小权值E.大写F.123G.冰山H.和与乘积I.二进制问题J.翻转括号序列', 602, 30, 6, 'javascript:void(0)'],
-                ['完全平方数 Python 数学定理法求解', '本文介绍了使用Python实现数学推理的方法解决leetcode 279.完全平方数 问题', 19, 3, 0, 'javascript:void(0)'],
-                ['计数质数 Python 埃氏筛选法', '本文讲述了使用Python 埃氏筛选法 实现leetcode 204. 计数质数 题目', 11, 1, 0, 'javascript:void(0)'],
-                ['leetcode 200. 岛屿数量 Python 回溯法', '本文介绍了使用Python 回溯法(深度优先搜索)实现 leetcode 200.岛屿数量 题目', 27, 1, 0, 'javascript:void(0)'],
-                ['leetcode 198.打家劫舍 Python 动态规划', '本文讲述了使用Python 动态规划解决leetcode 198.打家劫舍问题。', 2, 0, 0, 'javascript:void(0)'],
-                ['0-1背包问题 Python 动态规划', '本文章介绍了基于Python动态规划算法的 0-1 背包问题设计过程与实现', 159, 2, 3, 'javascript:void(0)'],
-                ['bugku 0和1的故事 用Excel完成', 'bugku MISC专区 0和1的故事做题思路，本题主要用Excel去还原二维码', 255, 3, 3, 'javascript:void(0)']
+                ['信息系统等保咨询及测评服务与校园网络安全运维项目采购意向公开', '信息系统：网站群、一卡通系统、体育信息化管理平台app、办公自动化系统等信息系统等保咨询及测评服务，校园网、一卡通网等与等保系统相关设施设备的安全运维以及图书馆内网、财务内网等的相关设施设备的安全运维', 10, 0, 0, 'my_article.html'],
+                ['XX理工学院耕读教育文化建设采购项目询价采购公告', 'XX理工学院学生食堂建设消防喷淋灭火系统、自动报警系统采购及安装项目', 602, 30, 6, 'javascript:void(0)'],
+                ['XX财贸职业学院2022年5月政府采购意向', 'XX财贸职业学院图书馆2022年图书文献和电子阅读建设，图书馆2022年图书文献和电子阅读建设项目为图书馆常规建设项目，项目总预算为240万元。其中，拟安排资金160万元用于采购一批图书馆纸质馆藏图书，安排80万元用于采购若干电子阅读网络服务，包括数据库平台、考试系统等。', 19, 3, 0, 'javascript:void(0)'],
+                ['XX医科大学2022年6月至7月政府采购意向', 'XX医科大学2022年中文期刊订购项目，XX医科大学拟采购2022年中文期刊约986种，保证期刊收藏连续性，满足广大师生读者的教学科研需求。要求须能根据用户需求及时提供本年度的书本式报刊征订目录或电子版报刊征订目录；按用户的中文期刊购买', 11, 1, 0, 'javascript:void(0)'],
+                ['XX师范大学关于学校宿舍空调的竞价采购邀请公告', '核心参数要求:商品类目: 空调; 颜色分类:白;型号:KFR-50GW/(****)FNhAa-B2JY01;是否需要安装:需要;智能类型:不支持智能;适用面积:23-34㎡;能效等级:二级;冷暖类型:冷暖型', 27, 1, 0, 'javascript:void(0)'],
+                ['XX城市职业技术学院消防设施维护保养项目的采购', '专业团队对学校以及周边的安全设施进行必要的养护和修理工作，开设承包团队长期护理设施。', 2, 0, 0, 'javascript:void(0)'],
+                ['XX职业技术学院信息化教学能力提升项目', 'XX职业技术学院戏曲表演艺术传承与创新智慧直播推广项目', 159, 2, 3, 'javascript:void(0)'],
+                ['XX农业大学关于办公设备维修和保养服务的网上超市采购项目', '项目需支持长期维护办公设备维修以及专业保养服务团队进行处理', 255, 3, 3, 'javascript:void(0)']
             ];
     </script>
     <script src="{{ url_for('static',filename='js_index.js') }}"></script>
@@ -66,20 +66,19 @@
     <!--左侧信息栏-->
     <div class="left_author">
         <div class="bg_model birthday">
-            <span class="iconfont icon-birthday"></span>于&nbsp;2018-12-26&nbsp;加入CSDN
+            <span class="iconfont icon-birthday"></span>于 2022-4-1 创立招标门户网站
         </div>
         <div class="bg_model">
-            <div class="little_title">获得成就</div>
+            <div class="little_title">招标热榜</div>
             <ul class="author_detail author_honor">
-                <li><img alt="" src="{{ url_for('static',filename='img/logo_like.png') }}">获得&nbsp; 54 &nbsp;次点赞</li>
-                <li><img alt="" src="{{ url_for('static',filename='img/logo_comman.png') }}">获得&nbsp; 73 &nbsp;次点赞</li>
-                <li style="margin: 0;"><img alt="" src="{{ url_for('static',filename='img/logo_collect.png') }}">获得&nbsp;
-                    41 &nbsp;次收藏
+                <li><img alt="" src="{{ url_for('static',filename='img/logo_like.png') }}">教师端移动新设备采购</li>
+                <li><img alt="" src="{{ url_for('static',filename='img/logo_comman.png') }}">新型授课系统</li>
+                <li style="margin: 0;"><img alt="" src="{{ url_for('static',filename='img/logo_collect.png') }}">校园红外签到设备
                 </li>
             </ul>
         </div>
         <div class="bg_model">
-            <div class="little_title">荣誉勋章</div>
+            <div class="little_title">招标在线达人</div>
             <!--轮播图-->
             <div class="lunbo_medal" onmouseenter="stop()" onmouseleave="auto()">
                 <ul class="author_detail author_medal" id="img_bar">
@@ -101,23 +100,23 @@
                 </ul>
             </div>
         </div>
-        <!--兴趣领域-->
+        <!--招标范围-->
         <div class="bg_model">
-            <div class="little_title">兴趣领域</div>
+            <div class="little_title">招标范围</div>
             <ul class="author_detail author_hobby">
-                <li><a href="javascript:void(0)">#算法</a></li>
-                <li><a href="javascript:void(0)">#信息安全</a></li>
+                <li><a href="javascript:void(0)">#教资设备</a></li>
+                <li><a href="javascript:void(0)">#信息维护</a></li>
             </ul>
         </div>
         <div class="bg_model">
             <!--折叠窗口-->
-            <div class="little_title">TA的专栏</div>
+            <div class="little_title">新型设备专栏</div>
             <ul class="author_detail author_zhuanlan">
-                <li><a>笔记</a><span class="fr">2篇</span></li>
-                <li><a>算法_蓝桥杯</a><span class="fr">1篇</span></li>
-                <li><a>算法_leetcode</a><span class="fr">6篇</span></li>
-                <li><a>算法_计蒜客</a><span class="fr">14篇</span></li>
-                <li><a>CTF_BugKu</a><span class="fr">2篇</span></li>
+                <li><a>红外测温</a><span class="fr">2篇</span></li>
+                <li><a>在线打卡</a><span class="fr">1篇</span></li>
+                <li><a>多人会议</a><span class="fr">6篇</span></li>
+                <li><a>疫情消杀设备</a><span class="fr">14篇</span></li>
+                <li><a>校园智能快递车</a><span class="fr">2篇</span></li>
             </ul>
             <div class="more">更多&nbsp;<i class="i down"></i></div>
             <div class="more d-none">收起&nbsp;<i class="i up"></i></div>
