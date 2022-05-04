@@ -7,7 +7,7 @@
     <link href="{{ url_for('static',filename='css/comman.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='css/iconfont.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='css/login.css') }}" rel="stylesheet">
-    <script src="{{ url_for('static',filename='js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jq.js') }}"></script>
 </head>
 <!--外部导航栏-->
 
@@ -39,7 +39,7 @@
             </div>
             <p id="forgot_pwd"><a href="javascript:void(0)" onclick="alert('用户名：LiuChenxu\n密码：Lcx123')"
                                   title="点我获取用户名及密码">忘记密码</a></p>
-            <button class="inp_bar btn_login disabled" id="Login" name="Login" type="submit">登录
+            <button class="inp_bar btn_login" id="Login" name="Login" type="submit">登录
             </button>
         </form>
         <p class="user_service">未注册手机验证后自动登录，<a href="javascript:alert('没有协议')">注册即代表同意《服务条款》</a></p>
