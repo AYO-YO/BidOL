@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Typora上传图片后无法预览的问题 解决方法</title>
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/comman.css" rel="stylesheet">
-    <link href="../css/iconfont.css" rel="stylesheet">
-    <link href="../css/my_article.css" rel="stylesheet">
-    <script src="../js/js_my_article.js"></script>
+    <link href="{{ url_for('static',filename='../css/base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/comman.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/iconfont.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/my_article.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static',filename='../js/js_my_article.js') }}"></script>
 </head>
 <body>
 <!--外部引入标题栏-->
-<object data="../web/header.html?ls=1" height="50px" style="z-index: 2;position: fixed; top: 0;left: 0;width: 100%"
+<object data="{{ url_for('header') }}?ls=1" height="50px" style="z-index: 2;position: fixed; top: 0;left: 0;width: 100%"
         width="100%"></object>
 <!--正文区域-->
 <div class="warp">
@@ -24,7 +24,8 @@
                     <tr>
                         <td><a href="https://blog.csdn.net/weixin_44289959"
                                style="margin: 0;width: 48px;height: 48px;border-radius: 24px">
-                            <img alt="AYO_YO" class="img_head" src="../img/my_head.png" title="去作者主页看看~"></a>
+                            <img alt="AYO_YO" class="img_head" src="{{ url_for('static',filename='img/my_head.png') }}"
+                                 title="去作者主页看看~"></a>
                         </td>
                         <td>
                             <table style="margin-left: 10px">
@@ -46,7 +47,8 @@
                     <td>691</td>
                     <td>17万+</td>
                     <td>5553</td>
-                    <td><img alt="" src="../img/blog3.png" style="width: 22px;height: 22px"></td>
+                    <td><img alt="" src="{{ url_for('static',filename='img/blog3.png') }}"
+                             style="width: 22px;height: 22px"></td>
                 </tr>
                 <tr>
                     <td>原创</td>
@@ -152,7 +154,7 @@
             <h1 id="h1_title">Typora上传图片后无法预览的问题 解决方法</h1>
             <div class="text_head">
                 <div class="head_content">
-                    <img alt="原创" src="../img/original.png"
+                    <img alt="原创" src="{{ url_for('static',filename='img/original.png') }}"
                          style="width: 36px;height: 32px;margin-right: 12px;line-height: 32px;vertical-align: middle;"
                          title="该文章是作者辛苦写的">
                     <span class="span_author span_content">AYO_YO</span>
@@ -167,9 +169,9 @@
             </div>
             <div class="text">
                 <p>Typora作为最好用的没有之一的Markdown编辑查看软件，使用PicGo上传图片到SM.MS图床有一个小bug，上传图床可以正常上传，但是上传成功后不能预览，如图：</p>
-                <p><img alt="" src="../img/pic1.png"></p>
+                <p><img alt="" src="{{ url_for('static',filename='img/pic1.png') }}"></p>
                 解决方法很简单，把https变为http即可。包括直接复制到CSDN出现外站图片转换失败的情况也可以用此方法解决。效果如图：
-                <p><img alt="" src="../img/pic2.png"></p>
+                <p><img alt="" src="{{ url_for('static',filename='img/pic2.png') }}"></p>
             </div>
             <div class="text_tail bg_model clear">
                 <!--下方几个按钮，该部分内容由js生成-->
@@ -244,6 +246,6 @@
         </script>
     </div>
 </div>
-<object data="../web/footer.html" height="116px" style="transform: translateY(3px)" width="100%"></object>
+<object data="{{ url_for('footer.html') }}" height="116px" style="transform: translateY(3px)" width="100%"></object>
 </body>
 </html>

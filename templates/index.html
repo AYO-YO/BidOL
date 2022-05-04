@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>G1F's Hus' 8L0G</title>
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/comman.css" rel="stylesheet">
-    <link href="../css/iconfont.css" rel="stylesheet">
-    <link href="../css/index.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/comman.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/iconfont.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/index.css') }}" rel="stylesheet">
     <script>
         let user_text_info_title = [5542, 42, 175482, 1057],
             user_text_info = ['被访问量', '原创文章', '作者排名', '粉丝数量'],
@@ -22,11 +22,11 @@
                 ['bugku 0和1的故事 用Excel完成', 'bugku MISC专区 0和1的故事做题思路，本题主要用Excel去还原二维码', 255, 3, 3, 'javascript:void(0)']
             ];
     </script>
-    <script src="../js/js_index.js"></script>
+    <script src="{{ url_for('static',filename='js_index.js') }}"></script>
 </head>
 <body>
 <!--导航栏（object引入外部网页）-->
-<object data="../web/header.html?ls=1" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
+<object data="{{ url_for('header') }}?ls=1" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
         width="100%"></object>
 <!--上方内容-->
 <div class="bg_bar">
@@ -36,7 +36,7 @@
     </div>
     <!--头像及性别-->
     <div class="head_bar">
-        <img alt="" class="my_head" src="../img/my_head.png">
+        <img alt="" class="my_head" src="{{ url_for('static',filename='img/my_head.png') }}">
         <div class="user_sex"></div>
     </div>
 </div>
@@ -48,8 +48,9 @@
     </div>
     <div class="user_info_title">
         <span>AYO_YO</span>
-        <span><img alt="" class="little_logo" src="../img/blog3.png"></span>
-        <span><img alt="" class="little_logo" src="../img/icon-cert-realName.7045f950.png"></span>
+        <span><img alt="" class="little_logo" src="{{ url_for('static',filename='img/blog3.png') }}"></span>
+        <span><img alt="" class="little_logo"
+                   src="{{ url_for('static',filename='img/icon-cert-realName.7045f950.png') }}"></span>
     </div>
     <ul class="text_info"></ul>
     <!--生成作者数据-->
@@ -70,9 +71,11 @@
         <div class="bg_model">
             <div class="little_title">获得成就</div>
             <ul class="author_detail author_honor">
-                <li><img alt="" src="../img/logo_like.png">获得&nbsp; 54 &nbsp;次点赞</li>
-                <li><img alt="" src="../img/logo_comman.png">获得&nbsp; 73 &nbsp;次点赞</li>
-                <li style="margin: 0;"><img alt="" src="../img/logo_collect.png">获得&nbsp; 41 &nbsp;次收藏</li>
+                <li><img alt="" src="{{ url_for('static',filename='img/logo_like.png') }}">获得&nbsp; 54 &nbsp;次点赞</li>
+                <li><img alt="" src="{{ url_for('static',filename='img/logo_comman.png') }}">获得&nbsp; 73 &nbsp;次点赞</li>
+                <li style="margin: 0;"><img alt="" src="{{ url_for('static',filename='img/logo_collect.png') }}">获得&nbsp;
+                    41 &nbsp;次收藏
+                </li>
             </ul>
         </div>
         <div class="bg_model">
@@ -80,11 +83,12 @@
             <!--轮播图-->
             <div class="lunbo_medal" onmouseenter="stop()" onmouseleave="auto()">
                 <ul class="author_detail author_medal" id="img_bar">
-                    <li><img alt="" src="../img/qiandao3@240.png" title="签到新秀"></li>
-                    <!--                <li><img alt="" src="../img/qiandao1@240.png"></li>-->
-                    <li><img alt="" src="../img/yuedu7@240.png" title="阅读达人"></li>
-                    <li><img alt="" src="../img/chizhiyiheng@240.png" title="持之以恒"></li>
-                    <li><img alt="" src="../img/qixiebiaobing2@240.png" title="勤写标兵"></li>
+                    <li><img alt="" src="{{ url_for('static',filename='img/qiandao3@240.png') }}" title="签到新秀"></li>
+                    <!--                <li><img alt="" src="{{ url_for('static',filename='img/qiandao1@240.png') }}"></li>-->
+                    <li><img alt="" src="{{ url_for('static',filename='img/yuedu7@240.png') }}" title="阅读达人"></li>
+                    <li><img alt="" src="{{ url_for('static',filename='img/chizhiyiheng@240.png') }}" title="持之以恒"></li>
+                    <li><img alt="" src="{{ url_for('static',filename='img/qixiebiaobing2@240.png') }}" title="勤写标兵">
+                    </li>
                 </ul>
                 <a class="next_medal" href="javascript:void(0)" id="left_medal" onclick="next(-1)">&lt;</a>
                 <a class="next_medal" href="javascript:void(0)" id="right_medal" onclick="next(1)">&gt;</a>
@@ -201,6 +205,6 @@
     </script>
 </div>
 <!--引入外部footer-->
-<object data="../web/footer.html" height="116px" style="margin-top: 20px;" width="100%"></object>
+<object data="{{ url_for('footer') }}" height="116px" style="margin-top: 20px;" width="100%"></object>
 </body>
 </html>

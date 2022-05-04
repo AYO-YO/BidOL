@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>登录 _ CSDN</title>
-    <link href="css/base.css" rel="stylesheet">
-    <link href="css/comman.css" rel="stylesheet">
-    <link href="css/iconfont.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
-    <script src="js/js_login.js"></script>
+    <link href="{{ url_for('static',filename='css/base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/comman.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/iconfont.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/login.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static',filename='js/js_login.js') }}"></script>
 </head>
 <!--外部导航栏-->
-<object data="web/header.html?ls=0" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
+<object data="{{ url_for('header') }}?ls=0" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
         width="100%"></object>
 <body>
 <div class="main">
@@ -64,5 +64,5 @@
     </div>
 </div>
 </body>
-<object data="web/footer.html" height="116px" style="position: absolute;bottom: 0" width="100%"></object>
+<object data="{{ url_for('footer') }}" height="116px" style="position: absolute;bottom: 0" width="100%"></object>
 </html>

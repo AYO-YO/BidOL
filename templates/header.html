@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>HEADER</title>
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/comman.css" rel="stylesheet">
-    <link href="../css/iconfont.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/comman.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='../css/iconfont.css') }}" rel="stylesheet">
     <style>
         .header {
             width: 100%;
@@ -87,7 +87,7 @@
             position: relative;
             width: 35px;
             height: 35px;
-            background: url("../img/my_head.png") no-repeat no-repeat;
+            background: url("{{ url_for('img/my_head.png') }}") no-repeat no-repeat;
             background-size: 35px 35px;
             border-radius: 50%;
             margin: 7px 10px;
@@ -147,7 +147,7 @@
         <script>
             // 通过其他网页的get传值判断当前是否是登录状态。
             if (key === 'ls' && value === '1') {
-                document.write("<div title='点击退出' class=\"user_head\" onclick='window.open(\"../login.html\",\"_blank\")'></div>")
+                document.write("<div title='点击退出' class=\"user_head\" onclick='window.open(\"{{ url_for('index') }}\",\"_blank\")'></div>")
             } else {
                 let oUl2 = document.querySelectorAll('.nav_bar')[1],
                     oA = document.createElement('a'),
