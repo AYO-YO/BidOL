@@ -8,70 +8,6 @@
     <link href="{{ url_for('static',filename='css/iconfont.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='css/login.css') }}" rel="stylesheet">
     <script src="{{ url_for('static',filename='js/jquery-3.6.0.min.js') }}"></script>
-    <script>
-        let userList = {
-            'LiuChenxu': 'Lcx123',
-        }
-
-
-        function reUserName() {
-            let oText = oUserName.value;
-            if (oText.length < 5) {
-                oUserTips.innerHTML = '用户名至少为5位数';
-                downBtn();
-                return false;
-            }
-            clearTips();
-            return true;
-        }
-
-        function reUserPwd() {
-            let oText = oUserPwd.value;
-            if (oText.length < 6) {
-                oPwdTips.innerHTML = '密码至少为6位数';
-                downBtn()
-                return false;
-            }
-            if (oText.charCodeAt(0) < 'A'.charCodeAt(0) || oText.charCodeAt(0) > 'Z'.charCodeAt(0)) {
-                oPwdTips.innerHTML = '密码首位必须是大写';
-                downBtn();
-                return false;
-            }
-            clearTips();
-            return true;
-        }
-
-        function reAll() {
-            if (reUserName() && reUserPwd()) {
-                if (userList[oUserName.value] === oUserPwd.value) {
-                    alert('登录成功！')
-                    window.location.href = "{{url_for('index')}}";
-                } else {
-                    alert('登录失败，请检查用户名或密码！')
-                }
-            } else {
-                alert('有信息填写错误，请检查！')
-            }
-        }
-
-        function clearTips() {
-            oUserTips.innerHTML = '&nbsp;'
-            oPwdTips.innerHTML = '&nbsp;'
-        }
-
-        function btn_able() {
-            if (reUserName() && reUserPwd()) {
-                oBtnLogin.className = "inp_bar btn_login text_bar";
-                oBtnLogin.disabled = false;
-            }
-        }
-
-        function downBtn() {
-            oBtnLogin.className = 'inp_bar btn_login disabled';
-            oBtnLogin.disabled = true;
-        }
-
-    </script>
 </head>
 <!--外部导航栏-->
 
@@ -89,37 +25,23 @@
     </div>
     <!--右侧登录内容-->
     <div class="main_login fr">
-        <form action="javascript:void(0)" method="post">
+        <form action="{{ url_for('login') }}" method="post">
             <h1 class="text_title">用户登录</h1>
             <div class="text_bar">
-                <label class="iconfont icon-smartphone" for="userName"></label>
-                <input class="inp_bar" id="userName" name="userName" placeholder="LiuChenxu" type="text">
+                <label class="iconfont icon-smartphone" for="user_name"></label>
+                <input class="inp_bar" id="user_name" name="user_name" placeholder="请输入用户名" type="text">
                 <p class="tips">&nbsp;</p>
             </div>
             <div class="text_bar">
-                <label for="userPwd"><span class="iconfont icon-password"></span></label>
-                <input class="inp_bar" id="userPwd" name="userPwd" placeholder="Lcx123" type="password">
+                <label for="user_pwd"><span class="iconfont icon-password"></span></label>
+                <input class="inp_bar" id="user_pwd" name="user_pwd" placeholder="请输入密码" type="password">
                 <p class="tips">&nbsp;</p>
             </div>
             <p id="forgot_pwd"><a href="javascript:void(0)" onclick="alert('用户名：LiuChenxu\n密码：Lcx123')"
                                   title="点我获取用户名及密码">忘记密码</a></p>
-            <button class="inp_bar btn_login disabled" disabled id="Login" name="Login" type="submit">登录
+            <button class="inp_bar btn_login disabled" id="Login" name="Login" type="submit">登录
             </button>
         </form>
-        <script>
-            let oUserName = document.querySelector('#userName'),
-                oUserPwd = document.querySelector('#userPwd'),
-                oUserTips = document.querySelector('.tips'),
-                oPwdTips = document.querySelectorAll('.tips')[1],
-                oBtnLogin = document.querySelector('#Login');
-            // 用户重新输入时，删除警告文本
-            oUserName.onfocus = clearTips;
-            oUserPwd.onfocus = clearTips;
-            // 通过键盘监听
-            oUserName.onkeyup = btn_able;
-            oUserPwd.onkeyup = btn_able;
-            oBtnLogin.onclick = reAll;
-        </script>
         <p class="user_service">未注册手机验证后自动登录，<a href="javascript:alert('没有协议')">注册即代表同意《服务条款》</a></p>
     </div>
 </div>

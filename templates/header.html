@@ -145,12 +145,12 @@
         <script>
             // 通过其他网页的get传值判断当前是否是登录状态。
             if (key === 'ls' && value === '1') {
-                document.write("<div title='点击退出' class=\"user_head\" onclick='window.open(\"{{ url_for('index') }}\",\"_blank\")'></div>")
+                document.write("<div title='点击退出' class=\"user_head\" onclick='window.open(\"{{ url_for('hello') }}\",\"_blank\")'></div>")
             } else {
                 let oUl2 = document.querySelectorAll('.nav_bar')[1],
                     oA = document.createElement('a'),
                     oLi = document.createElement('li');
-                oA.href = "{{ url_for('index') }}";
+                oA.href = "{{ url_for('hello') }}";
                 oA.target = "_blank";
                 oA.innerHTML = "登录/注册";
                 oLi.append(oA)
