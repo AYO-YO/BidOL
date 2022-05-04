@@ -1,0 +1,34 @@
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset, legend, input, button, textarea, select {
+    margin: 0;
+    padding: 0;
+    transition: all .3s;
+}
+
+input, button, textarea {
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+}
+
+input:focus, button:focus, textarea:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all .3s;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.clear {
+    clear: both;
+}

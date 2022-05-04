@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>G1F's Hus' 8L0G</title>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/comman.css" rel="stylesheet">
+    <link href="../css/iconfont.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+    <script>
+        let user_text_info_title = [5542, 42, 175482, 1057],
+            user_text_info = ['被访问量', '原创文章', '作者排名', '粉丝数量'],
+            article = [
+                //文章： [标题，摘要，阅读，评论，收藏，链接]
+                ['Typora上传图片后无法预览的问题 解决方法', 'Typora作为最好用的没有之一的Markdown编辑查看软件，使用PicGo上传图片到SM.MS图床有一个小bug，上传图床可以正常上传，但是上传成功后不能预览，如图：解决方法很简单，把https变为http即可。包括直接复制到CSDN出现外站图片转换失败的情况也可以用此方法解决。效果如图：..', 10, 0, 0, 'my_article.html'],
+                ['第十二届蓝桥杯国赛真题+题解 Python', '2021年蓝桥杯国赛，第十二界蓝桥杯软件赛决赛 Python 答题分析，附有完整题目A. 带宽B.纯质数C.完全日期D.最小权值E.大写F.123G.冰山H.和与乘积I.二进制问题J.翻转括号序列', 602, 30, 6, 'javascript:void(0)'],
+                ['完全平方数 Python 数学定理法求解', '本文介绍了使用Python实现数学推理的方法解决leetcode 279.完全平方数 问题', 19, 3, 0, 'javascript:void(0)'],
+                ['计数质数 Python 埃氏筛选法', '本文讲述了使用Python 埃氏筛选法 实现leetcode 204. 计数质数 题目', 11, 1, 0, 'javascript:void(0)'],
+                ['leetcode 200. 岛屿数量 Python 回溯法', '本文介绍了使用Python 回溯法(深度优先搜索)实现 leetcode 200.岛屿数量 题目', 27, 1, 0, 'javascript:void(0)'],
+                ['leetcode 198.打家劫舍 Python 动态规划', '本文讲述了使用Python 动态规划解决leetcode 198.打家劫舍问题。', 2, 0, 0, 'javascript:void(0)'],
+                ['0-1背包问题 Python 动态规划', '本文章介绍了基于Python动态规划算法的 0-1 背包问题设计过程与实现', 159, 2, 3, 'javascript:void(0)'],
+                ['bugku 0和1的故事 用Excel完成', 'bugku MISC专区 0和1的故事做题思路，本题主要用Excel去还原二维码', 255, 3, 3, 'javascript:void(0)']
+            ];
+    </script>
+    <script src="../js/js_index.js"></script>
+</head>
+<body>
+<!--导航栏（object引入外部网页）-->
+<object data="../web/header.html?ls=1" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
+        width="100%"></object>
+<!--上方内容-->
+<div class="bg_bar">
+    <div class="blog_info">
+        <h1>G1F's Hus' 8L0G</h1>
+        <p>随心更新学习笔记，欢迎指正</p>
+    </div>
+    <!--头像及性别-->
+    <div class="head_bar">
+        <img alt="" class="my_head" src="../img/my_head.png">
+        <div class="user_sex"></div>
+    </div>
+</div>
+<!--标题-->
+<div class="title">
+    <div class="double_btn">
+        <a class="btn btn_changeInfo">修改资料</a>
+        <a class="btn btn_old">切换旧版</a>
+    </div>
+    <div class="user_info_title">
+        <span>AYO_YO</span>
+        <span><img alt="" class="little_logo" src="../img/blog3.png"></span>
+        <span><img alt="" class="little_logo" src="../img/icon-cert-realName.7045f950.png"></span>
+    </div>
+    <ul class="text_info"></ul>
+    <!--生成作者数据-->
+    <script>
+        let oTextInfo = document.querySelector('.text_info');
+        for (let i = 0; i < user_text_info_title.length; i++) {
+            oTextInfo.innerHTML += '<li><h2>' + user_text_info_title[i] + '</h2><p>' + user_text_info[i] + '</p></li>'
+        }
+    </script>
+</div>
+<!--下方正文-->
+<div class="content">
+    <!--左侧信息栏-->
+    <div class="left_author">
+        <div class="bg_model birthday">
+            <span class="iconfont icon-birthday"></span>于&nbsp;2018-12-26&nbsp;加入CSDN
+        </div>
+        <div class="bg_model">
+            <div class="little_title">获得成就</div>
+            <ul class="author_detail author_honor">
+                <li><img alt="" src="../img/logo_like.png">获得&nbsp; 54 &nbsp;次点赞</li>
+                <li><img alt="" src="../img/logo_comman.png">获得&nbsp; 73 &nbsp;次点赞</li>
+                <li style="margin: 0;"><img alt="" src="../img/logo_collect.png">获得&nbsp; 41 &nbsp;次收藏</li>
+            </ul>
+        </div>
+        <div class="bg_model">
+            <div class="little_title">荣誉勋章</div>
+            <!--轮播图-->
+            <div class="lunbo_medal" onmouseenter="stop()" onmouseleave="auto()">
+                <ul class="author_detail author_medal" id="img_bar">
+                    <li><img alt="" src="../img/qiandao3@240.png" title="签到新秀"></li>
+                    <!--                <li><img alt="" src="../img/qiandao1@240.png"></li>-->
+                    <li><img alt="" src="../img/yuedu7@240.png" title="阅读达人"></li>
+                    <li><img alt="" src="../img/chizhiyiheng@240.png" title="持之以恒"></li>
+                    <li><img alt="" src="../img/qixiebiaobing2@240.png" title="勤写标兵"></li>
+                </ul>
+                <a class="next_medal" href="javascript:void(0)" id="left_medal" onclick="next(-1)">&lt;</a>
+                <a class="next_medal" href="javascript:void(0)" id="right_medal" onclick="next(1)">&gt;</a>
+                <!--导航小圆点-->
+                <ul class="car_btn_bar">
+                    <li class="dot_item dot_checked" id="1" onmouseenter="picked(this.id)"></li>
+                    <li class="dot_item" id="2" onmouseenter="picked(this.id)"></li>
+                    <li class="dot_item" id="3" onmouseenter="picked(this.id)"></li>
+                    <li class="dot_item" id="4" onmouseenter="picked(this.id)"></li>
+                </ul>
+            </div>
+        </div>
+        <!--兴趣领域-->
+        <div class="bg_model">
+            <div class="little_title">兴趣领域</div>
+            <ul class="author_detail author_hobby">
+                <li><a href="javascript:void(0)">#算法</a></li>
+                <li><a href="javascript:void(0)">#信息安全</a></li>
+            </ul>
+        </div>
+        <div class="bg_model">
+            <!--折叠窗口-->
+            <div class="little_title">TA的专栏</div>
+            <ul class="author_detail author_zhuanlan">
+                <li><a>笔记</a><span class="fr">2篇</span></li>
+                <li><a>算法_蓝桥杯</a><span class="fr">1篇</span></li>
+                <li><a>算法_leetcode</a><span class="fr">6篇</span></li>
+                <li><a>算法_计蒜客</a><span class="fr">14篇</span></li>
+                <li><a>CTF_BugKu</a><span class="fr">2篇</span></li>
+            </ul>
+            <div class="more">更多&nbsp;<i class="i down"></i></div>
+            <div class="more d-none">收起&nbsp;<i class="i up"></i></div>
+            <script>
+                let oMore = document.querySelector('.more'),
+                    oLess = document.querySelectorAll('.more')[1],
+                    oZhuanLan = document.querySelector('.author_zhuanlan');
+                oMore.onclick = function () {
+                    oMore.className = "more d-none";
+                    oLess.className = "more";
+                    oZhuanLan.style.height = 'auto';
+                }
+                oLess.onclick = function () {
+                    oMore.className = 'more';
+                    oLess.className = 'more d-none';
+                    oZhuanLan.style.height = '98px';
+                }
+            </script>
+        </div>
+    </div>
+    <div class="right_article_title">
+        <script>
+            // 生成文章列表
+            let oArticle = document.querySelector('.right_article_title');
+            for (let i = 0; i < article.length; i++) {
+                oArticle.innerHTML += "<div class=\"articles bg_model\">\n" +
+                    "            <h1><a href=" + article[i][5] + ">" + article[i][0] + "</a></h1>\n" +
+                    "            <p>" + article[i][1] + "</p>\n" +
+                    "            <p><span class=\"article_data\">\n" +
+                    "                <span class=\"iconfont icon-shuben\"></span>&nbsp;" + article[i][2] + "&nbsp;阅读\n" +
+                    "            </span> <span class=\"article_data\">\n" +
+                    "                <span class=\"iconfont icon-pinglun\"></span>&nbsp;" + article[i][3] + "&nbsp;评论\n" +
+                    "            </span> <span class=\"article_data\">\n" +
+                    "                <span class=\"iconfont icon-dianzan\"></span>&nbsp;" + article[i][4] + "&nbsp;点赞\n" +
+                    "            </span></p></div>";
+            }
+        </script>
+    </div>
+</div>
+<div class="tags">
+    <div class="float_tag">
+        <span class="iconfont icon-ico"></span>
+    </div>
+    <div class="float_tag">
+        <span class="iconfont icon-kefu1"></span>
+    </div>
+    <div class="float_tag top top_float">
+        <a class="return_top iconfont icon-top" href="javascript:scroll(0,0)" title="点击返回顶部"></a>
+    </div>
+    <script>
+        let floatStatus = true,  // 运动状态标记，避免重复运动
+            oTag1 = document.querySelector('.float_tag'),
+            oTag2 = document.querySelectorAll('.float_tag')[1],
+            tops = document.querySelector('.top');
+
+        //top按钮的隐藏及其余两个小球的运动
+        function scrollBottom() {
+            let clients = window.innerHeight,  // BOM操作：浏览器窗口大小
+                scrollTop = document.documentElement.scrollTop,  // 滚动高度
+                wholeTop = document.documentElement.scrollHeight;  // 总高度
+            if (clients + scrollTop >= wholeTop / 1.5) {
+                tops.className = 'float_tag top';
+                if (floatStatus) {
+                    //延迟时间后运动
+                    setTimeout(function () {
+                        oTag2.className += ' tag_float_top'
+                    }, 200)
+                    setTimeout(function () {
+                        oTag2.className = 'float_tag';
+                        oTag1.className += ' tag_float_top'
+                    }, 400)
+                    setTimeout(function () {
+                        oTag1.className = 'float_tag';
+                    }, 500)
+                }
+                floatStatus = false;
+            } else {
+                tops.className = 'float_tag top top_float';
+                floatStatus = true;
+            }
+        }
+
+        // 滚动监听器
+        window.onscroll = scrollBottom;
+    </script>
+</div>
+<!--引入外部footer-->
+<object data="../web/footer.html" height="116px" style="margin-top: 20px;" width="100%"></object>
+</body>
+</html>

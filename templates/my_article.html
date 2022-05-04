@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Typora上传图片后无法预览的问题 解决方法</title>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/comman.css" rel="stylesheet">
+    <link href="../css/iconfont.css" rel="stylesheet">
+    <link href="../css/my_article.css" rel="stylesheet">
+    <script src="../js/js_my_article.js"></script>
+</head>
+<body>
+<!--外部引入标题栏-->
+<object data="../web/header.html?ls=1" height="50px" style="z-index: 2;position: fixed; top: 0;left: 0;width: 100%"
+        width="100%"></object>
+<!--正文区域-->
+<div class="warp">
+    <!--左侧栏-->
+    <div class="fl" style="width: 300px;">
+        <div class="bg_model">
+            <div class="author">
+                <!--作者头像信息-->
+                <table class="table_author">
+                    <tr>
+                        <td><a href="https://blog.csdn.net/weixin_44289959"
+                               style="margin: 0;width: 48px;height: 48px;border-radius: 24px">
+                            <img alt="AYO_YO" class="img_head" src="../img/my_head.png" title="去作者主页看看~"></a>
+                        </td>
+                        <td>
+                            <table style="margin-left: 10px">
+                                <tr>
+                                    <td style="height: 24px;line-height: 24px;font-size: 14px">AYO_YO</td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 24px;line-height: 24px;font-size: 13px;color: #999aaa">码龄2年</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--作者排名等信息-->
+            <table style="width: 100%;text-align: center;font-size: 14px;line-height: 22px;border-bottom: 1px solid #eaeaef;padding-bottom: 10px">
+                <tr>
+                    <td>42</td>
+                    <td>691</td>
+                    <td>17万+</td>
+                    <td>5553</td>
+                    <td><img alt="" src="../img/blog3.png" style="width: 22px;height: 22px"></td>
+                </tr>
+                <tr>
+                    <td>原创</td>
+                    <td>周排名</td>
+                    <td>总排名</td>
+                    <td style="color: #999aaa">访问</td>
+                    <td style="color: #999aaa">等级</td>
+                </tr>
+            </table>
+            <div class="author_bar">
+                <!--作者文章数据等信息-->
+                <table style="width: 100%;text-align: center;font-size: 14px;line-height: 22px;border-bottom: 1px solid #eaeaef;padding-bottom: 10px;padding-top: 7px;">
+                    <tr>
+                        <td>563</td>
+                        <td>1056</td>
+                        <td>54</td>
+                        <td>73</td>
+                        <td>41</td>
+                    </tr>
+                    <tr style="color: #999aaa">
+                        <td>积分</td>
+                        <td>粉丝</td>
+                        <td>获赞</td>
+                        <td>评论</td>
+                        <td>收藏</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--专栏，详注见index.html-->
+        <div class="bg_model">
+            <div class="little_title">TA的专栏</div>
+            <ul class="author_detail author_zhuanlan">
+                <li><a>笔记</a><span class="fr">2篇</span></li>
+                <li><a>算法_蓝桥杯</a><span class="fr">1篇</span></li>
+                <li><a>算法_leetcode</a><span class="fr">6篇</span></li>
+                <li><a>算法_计蒜客</a><span class="fr">14篇</span></li>
+                <li><a>CTF_BugKu</a><span class="fr">2篇</span></li>
+            </ul>
+            <div class="more">更多&nbsp;<i class="i down"></i></div>
+            <div class="more d-none">收起&nbsp;<i class="i up"></i></div>
+            <script>
+                let oMore = document.querySelector('.more'),
+                    oLess = document.querySelectorAll('.more')[1],
+                    oZhuanLan = document.querySelector('.author_zhuanlan');
+                oMore.onclick = function () {
+                    oMore.className = "more d-none";
+                    oLess.className = "more";
+                    oZhuanLan.style.height = 'auto';
+                }
+                oLess.onclick = function () {
+                    oMore.className = 'more';
+                    oLess.className = 'more d-none';
+                    oZhuanLan.style.height = '98px';
+                }
+            </script>
+        </div>
+        <div class="bg_model">
+            <div class="little_title">请对我评价！</div>
+            <form action="" method="post" name="Star">
+                <div class="evaluation">
+                    <ul class="star_bar"></ul>
+                    <script>
+                        let oStars = document.querySelector('.star_bar');
+                        for (let i = 0; i < 5; i++) {
+                            oStars.innerHTML += '<li class="star"><span class="iconfont icon-shoucang"></span></li>'
+                        }
+                    </script>
+                    <button id="sub" onclick="alert('提交成功！')" type="submit">提交</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            let stars = document.querySelectorAll('.star'),
+                ul = document.getElementsByClassName('star_bar')[0],
+                l = stars.length,
+                scrap = -1;
+            for (let i = 0; i < l; i++) {
+                stars[i].onmouseenter = function () {
+                    light(i);
+                }
+                stars[i].onclick = function () {
+                    scrap = i;
+                }
+                ul.onmouseleave = function () {
+                    light(scrap);
+                }
+            }
+
+            function light(x) {
+                for (let j = 0; j <= x; j++) {
+                    stars[j].className = "star on";
+                }
+                for (let j = x + 1; j < l; j++) {
+                    stars[j].className = "star"
+                }
+            }
+        </script>
+    </div>
+    <!--右侧文章栏-->
+    <div class="right_text fr">
+        <div class="bg_model main_text">
+            <h1 id="h1_title">Typora上传图片后无法预览的问题 解决方法</h1>
+            <div class="text_head">
+                <div class="head_content">
+                    <img alt="原创" src="../img/original.png"
+                         style="width: 36px;height: 32px;margin-right: 12px;line-height: 32px;vertical-align: middle;"
+                         title="该文章是作者辛苦写的">
+                    <span class="span_author span_content">AYO_YO</span>
+                    <span class="span_content">2021-06-17 20:58:32</span>
+                    <span class="span_content"><span class="iconfont icon-eye"></span>10</span>
+                    <span class="span_content"><span class="iconfont icon-shoucang"></span>收藏 20</span>
+                </div>
+                <div class="blog_tags">
+                    <span class="span_label">分类专栏：</span>
+                    <a class="a_label">笔记</a>
+                </div>
+            </div>
+            <div class="text">
+                <p>Typora作为最好用的没有之一的Markdown编辑查看软件，使用PicGo上传图片到SM.MS图床有一个小bug，上传图床可以正常上传，但是上传成功后不能预览，如图：</p>
+                <p><img alt="" src="../img/pic1.png"></p>
+                解决方法很简单，把https变为http即可。包括直接复制到CSDN出现外站图片转换失败的情况也可以用此方法解决。效果如图：
+                <p><img alt="" src="../img/pic2.png"></p>
+            </div>
+            <div class="text_tail bg_model clear">
+                <!--下方几个按钮，该部分内容由js生成-->
+                <span class="sp_other_btn"></span>
+                <span class="sp_other_btn"></span>
+                <span class="sp_other_btn"></span>
+                <span class="sp_other_btn"></span>
+                <span class="sp_other_btn"></span>
+                <script>
+                    let oStar = document.querySelectorAll('.sp_other_btn');
+                    let list = ['点赞', '评论', '分享', '收藏', '举报'],
+                        icon_list = ["iconfont icon-dianzan", "iconfont icon-pinglun", "iconfont icon-share", "iconfont icon-shoucang", "iconfont icon-flag"];
+                    for (let i = 0; i < list.length; i++) {
+                        // 生成内容
+                        oStar[i].innerHTML = '<span class="' + icon_list[i] + '"></span>&nbsp;' + list[i];
+                    }
+
+                    function onStar(i) {
+                        // 点亮
+                        oStar[i].style.color = '#FF4D4D';
+                    }
+
+                    function offStar(i) {
+                        // 熄灭
+                        oStar[i].style = 'none';
+                    }
+
+                    for (let i = 0; i < list.length; i++) {
+                        oStar[i].onclick = function () {
+                            const span_sc_font_color = oStar[i];
+                            if (span_sc_font_color.innerHTML === '<span class="' + icon_list[i] + '"></span>&nbsp;' + list[i]) {
+                                span_sc_font_color.innerHTML = '<span class="' + icon_list[i] + '"></span>&nbsp;已' + list[i]
+                                span_sc_font_color.style.marginRight = '-4px'
+                                onStar(i)
+                            } else {
+                                span_sc_font_color.innerHTML = '<span class="' + icon_list[i] + '"></span>&nbsp;' + list[i]
+                                offStar(i)
+                            }
+                        }
+                    }
+                </script>
+                <button class="but_all_button" id="gz"
+                        onclick="if (this.innerHTML==='已关注'){this.innerHTML='关注';}else {this.innerHTML='已关注'}"
+                        style="padding: 0 16px" value="关注">&nbsp;关注&nbsp;
+                </button>
+                <button class="but_all_button" name="一键三连" onclick="alert('三连成功！')" value="一键三连">&nbsp;一键三连&nbsp;
+                </button>
+            </div>
+        </div>
+        <div class="comment_bar bg_model">
+            <div class="inp_comment_bar">
+                <input id="inp_comment" name="user_comment" placeholder="优质评论可以帮助作者获得更高的权重" type="text">
+                <button class="sub_comment" disabled>评论</button>
+            </div>
+            <ul class="comment_list"></ul>
+        </div>
+        <script>
+            //留言功能
+            let oText = document.querySelector('#inp_comment'),
+                oBtn = document.querySelector('.sub_comment'),
+                oUl = document.querySelector('.comment_list');
+            oText.onkeyup = function () {
+                if (oText.value.length > 0) {
+                    oBtn.className = "sub_comment ready_comment";
+                    oBtn.disabled = false;
+                } else {
+                    oBtn.className = "sub_comment";
+                    oBtn.disabled = true;
+                }
+            }
+            oBtn.onclick = leaveMessage;
+        </script>
+    </div>
+</div>
+<object data="../web/footer.html" height="116px" style="transform: translateY(3px)" width="100%"></object>
+</body>
+</html>

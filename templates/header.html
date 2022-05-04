@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>HEADER</title>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/comman.css" rel="stylesheet">
+    <link href="../css/iconfont.css" rel="stylesheet">
+    <style>
+        .header {
+            width: 100%;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .title {
+            max-width: 1600px;
+            min-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            float: left;
+            height: 50px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .nav_bar {
+            margin-left: 10px;
+        }
+
+        .nav_bar li {
+            height: 48px;
+            line-height: 50px;
+            float: left;
+            padding: 0 10px;
+            transition: all .3s;
+        }
+
+        .nav_bar li:hover {
+            border-bottom: 2px solid #FC1944;
+        }
+
+        .input_bar {
+            float: right;
+            width: 350px;
+            height: 30px;
+            margin: 10px;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #FF4D4D;
+        }
+
+        #input_text {
+            float: left;
+            width: 298px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .btn_search {
+            float: left;
+            width: 50px;
+            height: 30px;
+            line-height: 28px;
+            color: black;
+            font-weight: 900;
+            font-size: 18px;
+            transition: all .3s;
+            cursor: not-allowed;
+            border-left: 1px solid #FF4D4D;
+        }
+
+        .ready_search {
+            background-color: #FF4D4D;
+            color: white;
+            cursor: pointer;
+        }
+
+        .user_head {
+            float: right;
+            position: relative;
+            width: 35px;
+            height: 35px;
+            background: url("../img/my_head.png") no-repeat no-repeat;
+            background-size: 35px 35px;
+            border-radius: 50%;
+            margin: 7px 10px;
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        .user_head:hover {
+            transform: scale(1.2);
+        }
+
+        .wrt_center {
+            color: white;
+            background-color: #FF4D4D;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 0 10px;
+            height: 40px;
+            line-height: 40px;
+            margin: 5px 20px 5px 10px;
+        }
+
+    </style>
+    <script>
+        // 导航栏信息，后续通过js循环生成。
+        const nav_list = ['首页', '博客', '专栏课程', '下载', '问答', '社区', '代码'],
+            ad_list = ['会员中心', '收藏', '动态', '消息'];
+
+        //接收一个值
+        let str = window.location.href;
+        let arrStr = str.split("=");
+        let key = arrStr[0].split('?')[1];
+        let value = arrStr[1];
+    </script>
+</head>
+<body>
+<div class="header">
+    <div class="title">
+        <img alt="CSDN" class="logo" onclick="window.open('index.html', '_blank')" src="../img/logo.png" title="CSDN首页">
+        <ul class="nav_bar fl"></ul>
+        <script>
+            let oUl = document.querySelector('.nav_bar');
+            for (let i = 0; i < nav_list.length; i++) {
+                oUl.innerHTML += "<li>" + nav_list[i] + "</li>"
+            }
+        </script>
+        <div class="wrt_center fr">
+            <span class="iconfont icon-line-quillpenyumaobi"></span>&nbsp;创作中心
+        </div>
+        <ul class="nav_bar fr"></ul>
+        <script>
+            let oUl2 = document.querySelectorAll('.nav_bar')[1];
+            for (let i = 0; i < ad_list.length; i++) {
+                oUl2.innerHTML += "<li>" + ad_list[i] + "</li>";
+            }
+        </script>
+        <script>
+            // 通过其他网页的get传值判断当前是否是登录状态。
+            if (key === 'ls' && value === '1') {
+                document.write("<div title='点击退出' class=\"user_head\" onclick='window.open(\"../login.html\",\"_blank\")'></div>")
+            } else {
+                let oUl2 = document.querySelectorAll('.nav_bar')[1],
+                    oA = document.createElement('a'),
+                    oLi = document.createElement('li');
+                oA.href = "../login.html";
+                oA.target = "_blank";
+                oA.innerHTML = "登录/注册";
+                oLi.append(oA)
+                oUl2.insertBefore(oLi, oUl2.children[0]);
+            }
+        </script>
+        <form action="javascript:void(0)" method="post" name="search">
+            <div class="input_bar">
+                <input id="input_text" type="text">
+                <!--文本框中有内容时，按钮可用-->
+                <button class="btn_search" id="btn_search" type="submit"><span class="iconfont icon-sousuo5"></span>
+                </button>
+            </div>
+            <script>
+                let oText = document.querySelector('#input_text'),
+                    oBtn = document.querySelector('#btn_search');
+                oText.onkeyup = function () {
+                    oBtn.className = (oText.value.length > 0 ? "btn_search ready_search" : "btn_search");
+                }
+            </script>
+        </form>
+    </div>
+</div>
+</body>
+</html>

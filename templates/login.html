@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>登录 _ CSDN</title>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/comman.css" rel="stylesheet">
+    <link href="css/iconfont.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <script src="js/js_login.js"></script>
+</head>
+<!--外部导航栏-->
+<object data="web/header.html?ls=0" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
+        width="100%"></object>
+<body>
+<div class="main">
+    <!--左侧小知识-->
+    <div class="main_left fl">
+        <h1 class="text_title">
+            Quora 上线
+        </h1>
+        <p class="text">
+            2010 年 6 月，Quora 上线。Quora
+            是一个在线知识问答网站，创建目标为“挖掘网络上没有的维基知识，并赋予其强烈的社会媒体属性”。创始人亚当·安捷罗很早就敏锐地意识到，很多信息一直存在于人们的大脑中，却没有进入互联网世界——即使网络已经无处不在。
+        </p>
+        <div class="i_like_it">
+            <span class="iconfont icon-dianzan"></span>&emsp;1553
+        </div>
+    </div>
+    <!--右侧登录内容-->
+    <div class="main_login fr">
+        <form action="javascript:void(0)" method="post">
+            <h1 class="text_title">用户登录</h1>
+            <div class="text_bar">
+                <label class="iconfont icon-smartphone" for="userName"></label>
+                <input class="inp_bar" id="userName" name="userName" placeholder="ZhaoChunxu" type="text">
+                <p class="tips">&nbsp;</p>
+            </div>
+            <div class="text_bar">
+                <label for="userPwd"><span class="iconfont icon-password"></span></label>
+                <input class="inp_bar" id="userPwd" name="userPwd" placeholder="Zcx123" type="password">
+                <p class="tips">&nbsp;</p>
+            </div>
+            <p id="forgot_pwd"><a href="javascript:void(0)" onclick="alert('用户名：ZhaoChunxu\n密码：Zcx123')"
+                                  title="点我获取用户名及密码">忘记密码</a></p>
+            <button class="inp_bar btn_login disabled" disabled id="Login" name="Login" type="submit">登录
+            </button>
+        </form>
+        <script>
+            let oUserName = document.querySelector('#userName'),
+                oUserPwd = document.querySelector('#userPwd'),
+                oUserTips = document.querySelector('.tips'),
+                oPwdTips = document.querySelectorAll('.tips')[1],
+                oBtnLogin = document.querySelector('#Login');
+            // 用户重新输入时，删除警告文本
+            oUserName.onfocus = clearTips;
+            oUserPwd.onfocus = clearTips;
+            // 通过键盘监听
+            oUserName.onkeyup = btn_able;
+            oUserPwd.onkeyup = btn_able;
+            oBtnLogin.onclick = reAll;
+        </script>
+        <p class="user_service">未注册手机验证后自动登录，<a href="javascript:alert('没有协议')">注册即代表同意《服务条款》</a></p>
+    </div>
+</div>
+</body>
+<object data="web/footer.html" height="116px" style="position: absolute;bottom: 0" width="100%"></object>
+</html>

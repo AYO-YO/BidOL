@@ -1,0 +1,95 @@
+body {
+    font: 14px/1.5 "Microsoft YaHei UI";
+    color: black;
+    background-color: #f4f5f5;
+}
+
+/*左右浮动*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/*不可见*/
+.d-none {
+    display: none;
+}
+
+/*卡片式背景框*/
+.bg_model {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/*箭头*/
+.i {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    transition: all .3s;
+}
+
+.right {
+    transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg)
+}
+
+.up {
+    transform: rotate(-135deg);
+}
+
+.down {
+    transform: translateY(-3px) rotate(45deg);
+}
+
+.little_title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 16px;
+    border-bottom: 1px solid #e8e8ed;
+}
+
+.author_detail {
+    padding: 16px;
+}
+
+.author_zhuanlan {
+    overflow: hidden;
+    height: 98px;
+    transition: all .3s;
+}
+
+.author_zhuanlan li {
+    align-items: center;
+    height: 36px;
+    line-height: 36px;
+    color: #999aaa;
+}
+
+.author_zhuanlan li a:hover {
+    color: #FF4D4D;
+}
+
+/*更多/收起按钮*/
+.more {
+    text-align: center;
+    background-color: #e8e8ed;
+    height: 24px;
+    width: 60%;
+    line-height: 24px;
+    margin: 0 auto 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
