@@ -7,7 +7,70 @@
     <link href="{{ url_for('static',filename='css/comman.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='css/iconfont.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename='css/login.css') }}" rel="stylesheet">
-    <script src="{{ url_for('static',filename='js/js_login.js') }}"></script>
+    <script>
+        let userList = {
+            'LiuChenxu': 'Lcx123',
+        }
+
+
+        function reUserName() {
+            let oText = oUserName.value;
+            if (oText.length < 5) {
+                oUserTips.innerHTML = '用户名至少为5位数';
+                downBtn();
+                return false;
+            }
+            clearTips();
+            return true;
+        }
+
+        function reUserPwd() {
+            let oText = oUserPwd.value;
+            if (oText.length < 6) {
+                oPwdTips.innerHTML = '密码至少为6位数';
+                downBtn()
+                return false;
+            }
+            if (oText.charCodeAt(0) < 'A'.charCodeAt(0) || oText.charCodeAt(0) > 'Z'.charCodeAt(0)) {
+                oPwdTips.innerHTML = '密码首位必须是大写';
+                downBtn();
+                return false;
+            }
+            clearTips();
+            return true;
+        }
+
+        function reAll() {
+            if (reUserName() && reUserPwd()) {
+                if (userList[oUserName.value] === oUserPwd.value) {
+                    alert('登录成功！')
+                    window.location.href = "{{url_for('index')}}";
+                } else {
+                    alert('登录失败，请检查用户名或密码！')
+                }
+            } else {
+                alert('有信息填写错误，请检查！')
+            }
+        }
+
+        function clearTips() {
+            oUserTips.innerHTML = '&nbsp;'
+            oPwdTips.innerHTML = '&nbsp;'
+        }
+
+        function btn_able() {
+            if (reUserName() && reUserPwd()) {
+                oBtnLogin.className = "inp_bar btn_login text_bar";
+                oBtnLogin.disabled = false;
+            }
+        }
+
+        function downBtn() {
+            oBtnLogin.className = 'inp_bar btn_login disabled';
+            oBtnLogin.disabled = true;
+        }
+
+    </script>
 </head>
 <!--外部导航栏-->
 <object data="{{ url_for('header') }}?ls=0" height="50px" style="z-index: 2;position: fixed; top: 0;width: 100%"
@@ -20,7 +83,7 @@
             电子招标 上线
         </h1>
         <p class="text">
-                                   全流程电子化招投标，利用计算机和互联网完成招标投标的整个过程，即在线完成招标、投标、开标、评标、定标的全部活动，全程实时电子化操作
+            全流程电子化招投标，利用计算机和互联网完成招标投标的整个过程，即在线完成招标、投标、开标、评标、定标的全部活动，全程实时电子化操作
         </p>
     </div>
     <!--右侧登录内容-->
@@ -59,6 +122,7 @@
         <p class="user_service">未注册手机验证后自动登录，<a href="javascript:alert('没有协议')">注册即代表同意《服务条款》</a></p>
     </div>
 </div>
+{{ url_for('footer') }}
 </body>
-<object data="{{ url_for('footer') }}" height="116px" style="position: absolute;bottom: 0" width="100%"></object>
+{#<object data="{{ url_for('footer') }}" height="116px" style="position: absolute;bottom: 0" width="100%"></object>#}
 </html>
