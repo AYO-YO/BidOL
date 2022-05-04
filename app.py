@@ -10,7 +10,7 @@ def hello_world():  # put application's code here
 
 @app.route('/main', methods=['GET', 'POST'])
 def main():
-    pass
+    return '我刘晨旭是老哈皮'
 
 
 if __name__ == '__main__':
