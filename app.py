@@ -20,7 +20,7 @@ def header():
 
 @app.route('/main', methods=['GET', 'POST'])
 def main():
-    return '我刘晨旭是老哈皮'
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

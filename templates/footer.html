@@ -17,7 +17,7 @@
             margin: 0 auto;
             width: 100%;
             max-width: 972px;
-            box-shadow: 0 -1px 0 0 rgba(0 0 0 .05);
+            box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .05);
             padding: 24px 34px 20px;
         }
 
@@ -59,9 +59,9 @@
             margin-right: 4px;
         }
     </style>
-    <link href="{{ url_for('static',filename='../css/base.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static',filename='../css/comman.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static',filename='../css/iconfont.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/comman.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/iconfont.css') }}" rel="stylesheet">
 </head>
 <body>
 <div class="" id="copyright-box">
@@ -96,7 +96,7 @@
             </li>
         </ul>
         <ul class="footer-column-b">
-            <li><img alt="" src="../img/beian.png">
+            <li><img alt="" src="{{ url_for('static',filename='img/beian.png') }}">
                 <a rel="noreferrer">公安备案号11010502030143</a></li>
             <li><a>京ICP备19004658号</a></li>
             <li><a>京网文〔2020〕1039-165号</a></li>
