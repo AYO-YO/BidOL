@@ -88,6 +88,8 @@
             background-size: 35px 35px;
             border-radius: 50%;
             margin: 7px 10px;
+            text-align: center;
+            line-height: 35px;
             transition: all .3s;
             cursor: pointer;
         }
@@ -132,21 +134,22 @@
                 oUl.innerHTML += "<li>" + nav_list[i] + "</li>"
             }
         </script>
-        <div class="wrt_center fr">
-            <span class="iconfont icon-line-quillpenyumaobi"></span>&nbsp;发布中心
-        </div>
-        <ul class="nav_bar fr"></ul>
+        {% if user['role']==1 %}
+            <div class="wrt_center fr">
+                <span class="iconfont icon-line-quillpenyumaobi"></span>&nbsp;发布中心
+            </div>
+        {% endif %}
+        <ul id="before_create" class="nav_bar fr"></ul>
         <script>
             let oUl2 = document.querySelectorAll('.nav_bar')[1];
             for (let i = 0; i < ad_list.length; i++) {
                 oUl2.innerHTML += "<li>" + ad_list[i] + "</li>";
             }
         </script>
-        <script>
-            // 通过其他网页的get传值判断当前是否是登录状态。
-            if (key === 'ls' && value === '1') {
-                document.write("<div title='点击退出' class=\"user_head\" onclick='window.open(\"{{ url_for('hello') }}\",\"_blank\")'></div>")
-            } else {
+        {% if user['name']!='' %}
+            <div title='点击退出' class="user_head">{{ user['name'] }}</div>
+        {% else %}
+            <script>
                 let oUl2 = document.querySelectorAll('.nav_bar')[1],
                     oA = document.createElement('a'),
                     oLi = document.createElement('li');
@@ -155,8 +158,8 @@
                 oA.innerHTML = "登录/注册";
                 oLi.append(oA)
                 oUl2.insertBefore(oLi, oUl2.children[0]);
-            }
-        </script>
+            </script>
+        {% endif %}
         <form action="javascript:void(0)" method="post" name="search">
             <div class="input_bar">
                 <input id="input_text" type="text">

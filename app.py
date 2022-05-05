@@ -33,17 +33,9 @@ def hello():  # put application's code here
     return redirect(url_for('login'))
 
 
-user_role = -1
-
-
-def get_user_role():
-    global user_role
-    return user_role
-
-
-def set_user_role(role):
-    global user_role
-    user_role = role
+user = {}
+user['role'] = -1
+user['name'] = ''
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -56,8 +48,9 @@ def login():
             user_pwd = request.values.get('user_pwd')
             flag = query_sql('select role from user where name=? and pwd=?', (user_name, user_pwd))
             if len(flag) > 0:
+                user['name'] = user_name
                 role = flag[0][0]
-                set_user_role(role)
+                user['role'] = role
                 return redirect(url_for('main'))
             else:
                 return render_template('alert.html', m='登录失败！请检查用户名及密码！')
@@ -70,12 +63,12 @@ def footer():
 
 @app.route('/header', methods=['GET', 'POST'])
 def header():
-    return render_template('header.html')
+    return render_template('header.html', user=user)
 
 
 @app.route('/main', methods=['GET', 'POST'])
 def main():
-    role = get_user_role()
+    role = user['role']
     if role != -1:
         return render_template('index.html', role=role)
     else:
