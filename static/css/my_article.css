@@ -180,7 +180,7 @@ body {
 
 .text {
     margin-top: 20px;
-    color: #999aaa;
+    color: rgb(32, 32, 32);
     font-size: 16px;
 }
 
@@ -241,7 +241,7 @@ body {
 }
 
 #inp_comment {
-    width: 850px;
+    width: 849px;
     height: 36px;
     line-height: 36px;
     padding-left: 10px;

@@ -50,8 +50,8 @@
             document.getElementById(index).className += " dot_checked";
         }
 
-        let user_text_info_title = [5542, 42, 175482, 1057],
-            user_text_info = ['被访问量', '原创文章', '作者排名', '粉丝数量'];
+        let user_text_info_title = [5542],
+            user_text_info = ['访问量',];
     </script>
 </head>
 <body>
@@ -60,37 +60,11 @@
 <!--上方内容-->
 <div class="bg_bar">
     <div class="blog_info">
-        <h1>G1F's Hus' 8L0G</h1>
-        <p>随心更新学习笔记，欢迎指正</p>
-    </div>
-    <!--头像及性别-->
-    <div class="head_bar">
-        <img alt="" class="my_head" src="{{ url_for('static',filename='img/my_head.png') }}">
-        <div class="user_sex"></div>
+        <h1>招标信息中心</h1>
+        <p>这里是招标信息中心</p>
     </div>
 </div>
-<!--标题-->
-<div class="title">
-    <div class="double_btn">
-        <a class="btn btn_changeInfo">修改资料</a>
-        <a class="btn btn_old">切换旧版</a>
-    </div>
-    <div class="user_info_title">
-        <span>AYO_YO</span>
-        <span><img alt="" class="little_logo" src="{{ url_for('static',filename='img/blog3.png') }}"></span>
-        <span><img alt="" class="little_logo"
-                   src="{{ url_for('static',filename='img/icon-cert-realName.7045f950.png') }}"></span>
-    </div>
-    <ul class="text_info"></ul>
-    <!--生成作者数据-->
-    <script>
-        let oTextInfo = document.querySelector('.text_info');
-        for (let i = 0; i < user_text_info_title.length; i++) {
-            oTextInfo.innerHTML += '<li><h2>' + user_text_info_title[i] + '</h2><p>' + user_text_info[i] + '</p></li>'
-        }
-    </script>
-</div>
-<!--下方正文-->
+
 <div class="content clear">
     <!--左侧信息栏-->
     <div class="left_author">
@@ -112,7 +86,6 @@
             <div class="lunbo_medal" onmouseenter="stop()" onmouseleave="auto()">
                 <ul class="author_detail author_medal" id="img_bar">
                     <li><img alt="" src="{{ url_for('static',filename='img/qiandao3@240.png') }}" title="签到新秀"></li>
-                    <!--                <li><img alt="" src="{{ url_for('static',filename='img/qiandao1@240.png') }}"></li>-->
                     <li><img alt="" src="{{ url_for('static',filename='img/yuedu7@240.png') }}" title="阅读达人"></li>
                     <li><img alt="" src="{{ url_for('static',filename='img/chizhiyiheng@240.png') }}" title="持之以恒"></li>
                     <li><img alt="" src="{{ url_for('static',filename='img/qixiebiaobing2@240.png') }}" title="勤写标兵">

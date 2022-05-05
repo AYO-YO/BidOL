@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, url_for, redirect
 import sqlite3
+
+from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
@@ -82,7 +83,13 @@ def main():
 def content():
     match request.method:
         case 'GET':
-            return render_template('content.html')
+            c_id = request.values.get('article_id')
+            if c_id is None:
+                return redirect(url_for('main'))
+            read_num = query_sql('select read_num from bid where _id=?', (c_id,))[0][0] + 1
+            execute_sql('update bid set read_num=? where _id=?', (read_num, c_id))
+            content = query_sql('select * from bid where _id=?', (c_id,))[0]
+            return render_template('content.html', content=content)
 
 
 @app.route('/create', methods=['GET', 'POST'])
