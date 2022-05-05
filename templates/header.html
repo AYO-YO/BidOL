@@ -135,7 +135,8 @@
             }
         </script>
         {% if user['role']==1 %}
-            <div class="wrt_center fr">
+            <div class="wrt_center fr" style="cursor: pointer;"
+                 onclick="window.location.href='{{ url_for('create') }}'">
                 <span class="iconfont icon-line-quillpenyumaobi"></span>&nbsp;发布中心
             </div>
         {% endif %}

@@ -23,6 +23,7 @@ def execute_sql(sql_str, args=tuple()):
         cur.execute(sql_str, args)
     else:
         cur.execute(sql_str)
+    conn.commit()
     cnt = cur.rowcount
     cur.close()
     return cnt
@@ -70,7 +71,8 @@ def header():
 def main():
     role = user['role']
     if role != -1:
-        content = query_sql('select _id, title, date, duration, read_num, abstract from bid where active = true')
+        content = query_sql(
+            'select _id, title, date, duration, read_num, abstract from bid where active = true order by date DESC ')
         return render_template('index.html', role=role, content=content)
     else:
         return redirect(url_for('login'))
@@ -78,7 +80,25 @@ def main():
 
 @app.route('/content', methods=['GET', 'POST'])
 def content():
-    return render_template('content.html')
+    match request.method:
+        case 'GET':
+            return render_template('content.html')
+
+
+@app.route('/create', methods=['GET', 'POST'])
+def create():
+    match request.method:
+        case 'GET':
+            return render_template('create.html')
+        case 'POST':
+            title = request.values.get('title')
+            abstract = request.values.get('abstract')
+            duration = request.values.get('duration')
+            is_active = 1 if request.values.get('is_active') == 'on' else 0
+            content = request.values.get('content')
+            sql = 'insert into bid(title, content, duration, active, abstract) values (?,?,?,?,?)'
+            flag = execute_sql(sql, (title, content, duration, is_active, abstract))
+            return render_template('alert.html', m='发布成功！' if flag else '发布失败。请联系管理员。。')
 
 
 if __name__ == '__main__':
