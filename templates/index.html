@@ -54,7 +54,7 @@
             user_text_info = ['被访问量', '原创文章', '作者排名', '粉丝数量'],
             article = [
                 //文章： [标题，摘要，阅读，评论，收藏，链接]
-                ['信息系统等保咨询及测评服务与校园网络安全运维项目采购意向公开', '信息系统：网站群、一卡通系统、体育信息化管理平台app、办公自动化系统等信息系统等保咨询及测评服务，校园网、一卡通网等与等保系统相关设施设备的安全运维以及图书馆内网、财务内网等的相关设施设备的安全运维', 10, 0, 0, 'my_article.html'],
+                ['信息系统等保咨询及测评服务与校园网络安全运维项目采购意向公开', '信息系统：网站群、一卡通系统、体育信息化管理平台app、办公自动化系统等信息系统等保咨询及测评服务，校园网、一卡通网等与等保系统相关设施设备的安全运维以及图书馆内网、财务内网等的相关设施设备的安全运维', 10, 0, 0, 'content.html'],
                 ['XX理工学院耕读教育文化建设采购项目询价采购公告', 'XX理工学院学生食堂建设消防喷淋灭火系统、自动报警系统采购及安装项目', 602, 30, 6, 'javascript:void(0)'],
                 ['XX财贸职业学院2022年5月政府采购意向', 'XX财贸职业学院图书馆2022年图书文献和电子阅读建设，图书馆2022年图书文献和电子阅读建设项目为图书馆常规建设项目，项目总预算为240万元。其中，拟安排资金160万元用于采购一批图书馆纸质馆藏图书，安排80万元用于采购若干电子阅读网络服务，包括数据库平台、考试系统等。', 19, 3, 0, 'javascript:void(0)'],
                 ['XX医科大学2022年6月至7月政府采购意向', 'XX医科大学2022年中文期刊订购项目，XX医科大学拟采购2022年中文期刊约986种，保证期刊收藏连续性，满足广大师生读者的教学科研需求。要求须能根据用户需求及时提供本年度的书本式报刊征订目录或电子版报刊征订目录；按用户的中文期刊购买', 11, 1, 0, 'javascript:void(0)'],
@@ -178,22 +178,25 @@
         </div>
     </div>
     <div class="right_article_title">
-        <script>
-            // 生成文章列表
-            let oArticle = document.querySelector('.right_article_title');
-            for (let i = 0; i < article.length; i++) {
-                oArticle.innerHTML += "<div class=\"articles bg_model\">\n" +
-                    "            <h1><a href=" + article[i][5] + ">" + article[i][0] + "</a></h1>\n" +
-                    "            <p>" + article[i][1] + "</p>\n" +
-                    "            <p><span class=\"article_data\">\n" +
-                    "                <span class=\"iconfont icon-shuben\"></span>&nbsp;" + article[i][2] + "&nbsp;阅读\n" +
-                    "            </span> <span class=\"article_data\">\n" +
-                    "                <span class=\"iconfont icon-pinglun\"></span>&nbsp;" + article[i][3] + "&nbsp;评论\n" +
-                    "            </span> <span class=\"article_data\">\n" +
-                    "                <span class=\"iconfont icon-dianzan\"></span>&nbsp;" + article[i][4] + "&nbsp;点赞\n" +
-                    "            </span></p></div>";
-            }
-        </script>
+        {#        _id, title, date, duration, read_num, abstract#}
+        {% for item in content %}
+            <div class="articles bg_model">
+                <h1><a href="{{ url_for('content') }}?article_id={{ item[0] }}">{{ item[1] }}</a></h1>
+                <p>{{ item[5] }}</p>
+                <p>
+                    <span class="article_data">
+                    <span class="iconfont icon-shuben"></span>&nbsp;{{ item[2] }}&nbsp;阅读</span>
+                    <span class="article_data">发布时间：{{ item[2] }}</span>
+                    <span class="article_data">持续时间：
+                        {% if item[3] == -1 %}
+                            永久
+                        {% else %}
+                            {{ item[3] }}天
+                        {% endif %} 
+                    </span>
+                </p>
+            </div>
+        {% endfor %}
     </div>
 </div>
 <div class="tags">

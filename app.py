@@ -70,9 +70,15 @@ def header():
 def main():
     role = user['role']
     if role != -1:
-        return render_template('index.html', role=role)
+        content = query_sql('select _id, title, date, duration, read_num, abstract from bid where active = true')
+        return render_template('index.html', role=role, content=content)
     else:
         return redirect(url_for('login'))
+
+
+@app.route('/content', methods=['GET', 'POST'])
+def content():
+    return render_template('content.html')
 
 
 if __name__ == '__main__':
