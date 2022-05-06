@@ -30,14 +30,16 @@ def execute_sql(sql_str, args=tuple()):
     return cnt
 
 
-@app.route('/')
-def hello():  # put application's code here
-    return redirect(url_for('login'))
-
-
 user = {}
 user['role'] = -1
 user['name'] = ''
+
+
+@app.route('/')
+def hello():  # put application's code here
+    user['role'] = -1
+    user['name'] = ''
+    return redirect(url_for('login'))
 
 
 @app.route('/login', methods=['GET', 'POST'])

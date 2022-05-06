@@ -5,8 +5,10 @@ body {
 
 /*上方背景*/
 .bg_bar {
-    background-color: rgb(34, 46, 60);
-    height: 100px;
+
+    background: url("../img/6.webp") no-repeat 100% -110px;
+    background-size: cover;
+    height: 300px;
     color: white;
     padding-left: 20px;
     padding-top: 10px;
@@ -15,8 +17,6 @@ body {
 
 /*上方背景图*/
 .blog_info {
-    background: url("../img/6.webp") no-repeat 50% 0;
-    background-size: cover;
     height: 100%;
     max-width: 1600px;
     margin: 0 auto;
