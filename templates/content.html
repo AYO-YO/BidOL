@@ -47,8 +47,7 @@
     <!--左侧栏-->
     <div class="fl" style="width: 300px;">
         <div class="bg_model" style="display: flex; flex-direction: column;align-items: center;">
-            {#TODO: 图片显示异常#}
-            <img src="{{ url_for('static',filename='img/ad.png') }}" alt="">
+            <img src="{{ url_for('static',filename='img/ad.png') }}" style="width:300px;height:100px;">
         </div>
         <!--专栏，详注见index.html-->
         <div class="bg_model">
@@ -128,7 +127,7 @@
                 <div class="head_content">
                     <img alt="公示" src="{{ url_for('static',filename='img/original.png') }}"
                          style="width: 36px;height: 32px;margin-right: 12px;line-height: 32px;vertical-align: middle;"
-                         title="该文章是作者辛苦写的">
+                         >
                     <span class="span_content">发布日期：{{ content[3] }}</span>
                     <span class="span_content"><span class="iconfont icon-eye"></span> {{ content[5] }} </span>
                 </div>
