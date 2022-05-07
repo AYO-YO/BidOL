@@ -47,7 +47,7 @@
     <!--左侧栏-->
     <div class="fl" style="width: 300px;">
         <div class="bg_model" style="display: flex; flex-direction: column;align-items: center;">
-            <img src="{{ url_for('static',filename='img/ad.png') }}" style="width:300px;height:100px;">
+            <img src="{{ url_for('static',filename='img/ad.jpg') }}" style="width:300px;height:100px;" alt="">
         </div>
         <!--专栏，详注见index.html-->
         <div class="bg_model">
@@ -127,7 +127,7 @@
                 <div class="head_content">
                     <img alt="公示" src="{{ url_for('static',filename='img/original.png') }}"
                          style="width: 36px;height: 32px;margin-right: 12px;line-height: 32px;vertical-align: middle;"
-                         >
+                    >
                     <span class="span_content">发布日期：{{ content[3] }}</span>
                     <span class="span_content"><span class="iconfont icon-eye"></span> {{ content[5] }} </span>
                 </div>
@@ -174,7 +174,7 @@
         </script>
     </div>
 </div>
-<footer id="footer" style="width:100%;height:116px;position: relative; bottom: 0" class="clear"></footer>
+<footer id="footer" style="width:100%;height:92px;position: relative; bottom: 0" class="clear"></footer>
 <div></div>
 <script>
     $(document).ready(

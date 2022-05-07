@@ -96,7 +96,12 @@ def content():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    pass
+    match request.method:
+        case 'GET':
+            return render_template('register.html')
+        case 'POST':
+            return
+
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():
@@ -112,8 +117,6 @@ def create():
             sql = 'insert into bid(title, content, duration, active, abstract) values (?,?,?,?,?)'
             flag = execute_sql(sql, (title, content, duration, is_active, abstract))
             return render_template('alert.html', m='发布成功！' if flag else '发布失败。请联系管理员。。')
-
-
 
 
 if __name__ == '__main__':
