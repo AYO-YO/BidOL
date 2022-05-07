@@ -1,4 +1,7 @@
+import random
+import smtplib
 import sqlite3
+from email.mime.text import MIMEText
 
 from flask import Flask, render_template, request, url_for, redirect
 
@@ -94,13 +97,77 @@ def content():
             return render_template('content.html', content=content)
 
 
+def send_mail(receivers: list, content: str):
+    """
+    发送邮件给指定邮箱
+    :param receivers 接收者列表
+    :param content 邮件内容
+    """
+    # 邮箱服务器及对应用户信息
+    mail_host = 'smtp.qq.com'
+    mail_port = 465
+    mail_user = '958973633@qq.com'
+    mail_password = 'iryqvrrwgcwfbeji'
+
+    # 发送者和接收者，此处注意QQ邮箱不能直接群发
+    sender = '958973633@qq.com'
+    for receiver in receivers:
+        receivers = [receiver]
+
+        # 设置邮件内容格式
+        message = MIMEText(content)
+        message['Subject'] = '注册验证码'
+        message['From'] = sender
+        message['To'] = receivers[0]
+        try:
+            # 建立与邮件服务器的连接
+            smtp_obj = smtplib.SMTP_SSL(mail_host, mail_port)
+            smtp_obj.login(mail_user, mail_password)
+            # 发送邮件
+            smtp_obj.sendmail(sender, receivers, message.as_string())
+            # 关闭连接
+            smtp_obj.quit()
+            print(f'向{receiver}发送邮件成功！')
+        except smtplib.SMTPException as e:
+            print(e)
+            return False
+    return True
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     match request.method:
         case 'GET':
             return render_template('register.html')
         case 'POST':
-            return
+            mail = request.values.get('email')
+            user_name = request.values.get('user_name')
+            pwd = request.values.get('pwd')
+            check_code = request.values.get('check_code')
+            if user['code'] != check_code:
+                return render_template('alert.html', m="验证码输入错误！")
+            sql = 'select * from user where email=?'
+            flag = len(query_sql(sql, (mail,))) > 0
+            if flag:
+                return render_template('alert.html', m='该邮箱已注册！')
+            sql = 'insert into user(name, pwd, role, email) VALUES (?,?,?,?)'
+            flag = execute_sql(sql, (user_name, pwd, 0, mail))
+            if flag:
+                return render_template('alert.html', m='注册成功！')
+            else:
+                return render_template('alert.html', m='注册失败，请联系管理员！')
+
+
+@app.route('/send_code', methods=['POST'])
+def send_code():
+    mail = request.values.get('email')
+    code = random.randint(1000, 9999)
+    print(mail)
+    print(code)
+    text = f"""【高校采购门户网站】您的注册验证码为：{code}"""
+    user['mail'] = mail
+    user['code'] = str(code)
+    return str(send_mail([mail], text))
 
 
 @app.route('/create', methods=['GET', 'POST'])
