@@ -37,9 +37,10 @@
                 <input class="inp_bar" id="user_pwd" name="user_pwd" placeholder="请输入密码" type="password">
                 <p class="tips">&nbsp;</p>
             </div>
-            <p id="forgot_pwd"><a href="{{ url_for('register') }}"></a><a href="javascript:void(0)"
-                                                                          onclick="alert('用户名：LiuChenxu\n密码：Lcx123')"
-                                                                          title="点我获取用户名及密码">忘记密码</a></p>
+            <p id="forgot_pwd"><a href="{{ url_for('register') }}">没有账户？立即注册</a>&emsp;&emsp;<a href="javascript:void(0)"
+                                                                                               onclick="alert('用户名：LiuChenxu\n密码：Lcx123')"
+                                                                                               title="点我获取用户名及密码">忘记密码</a>
+            </p>
             <button class="inp_bar btn_login" id="Login" name="Login" type="submit">登录
             </button>
         </form>
