@@ -186,5 +186,14 @@ def create():
             return render_template('alert.html', m='发布成功！' if flag else '发布失败。请联系管理员。。')
 
 
+@app.route('/exit')
+def exit():
+    user['mail'] = ''
+    user['code'] = ''
+    user['role'] = -1
+    user['name'] = ''
+    return redirect(url_for('login'))
+
+
 if __name__ == '__main__':
     app.run()

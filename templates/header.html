@@ -148,7 +148,12 @@
             }
         </script>
         {% if user['name']!='' %}
-            <div title='点击退出' class="user_head">{{ user['name'] }}</div>
+            <div title='点击退出' class="user_head" id="exit">{{ user['name'] }}</div>
+            <script>
+                $('#exit').click(function () {
+                    window.location.href = '{{ url_for('exit') }}'
+                })
+            </script>
         {% else %}
             <script>
                 let oUl2 = document.querySelectorAll('.nav_bar')[1],
